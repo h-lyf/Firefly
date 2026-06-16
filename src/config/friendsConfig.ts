@@ -50,6 +50,15 @@ export const friendsConfig: FriendLink[] = [
 		weight: 8,
 		enabled: true,
 	},
+	{
+		title: "Hyde Blog",
+		imgurl: "https://seasir.top/_astro/avatar.B2RZ_bo3_JV0dW.webp",
+		desc: "人心中的成见是一座大山",
+		siteurl: "https://seasir.top",
+		tags: ["Blog"],
+		weight: 7,
+		enabled: true,
+	},
 ];
 
 // 获取启用的友链并进行排序
