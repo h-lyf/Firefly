@@ -6,13 +6,13 @@ const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
 	// 站点标题
-	title: "Firefly",
+	title: "御剑乘风",
 
 	// 站点副标题
 	subtitle: "Demo site",
 
 	// 站点 URL
-	site_url: "https://firefly.cuteleaf.cn",
+	site_url: "https://blog.666411.xyz",
 
 	// 站点描述
 	description:
