@@ -8,7 +8,7 @@
 > 
 > ![Node.js >= 22](https://img.shields.io/badge/node.js-%3E%3D22-brightgreen) 
 ![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue)
-![Astro](https://img.shields.io/badge/Astro-6.4.4-orange)
+![Astro](https://img.shields.io/badge/Astro-7.0.2-orange)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue)
 >
 > [![Stars](https://img.shields.io/github/stars/CuteLeaf/Firefly?style=social)](https://github.com/CuteLeaf/Firefly/stargazers)
@@ -43,7 +43,19 @@
 
 🔧 高度可配置: 大部分功能模块均可通过配置文件自定义
 
-<img alt="firefly" src="./docs/images/1.webp" />
+<table width="100%" align="center">
+  <tr>
+    <td colspan="3" align="center">
+      <img src="./docs/images/1.webp" >
+      <br>横幅模式</td>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><img src="./docs/images/3.webp" width="300"><br>透明模式</td>
+    <td align="center"><img src="./docs/images/2.webp" width="300"><br>全屏壁纸模式</td>
+    <td align="center"><img src="./docs/images/4.webp" width="300"><br>纯色模式</td>
+  </tr>
+</table>
 <img alt="Lighthouse" src="./docs/images/Lighthouse.png" />
 
 >[!TIP]
@@ -214,7 +226,7 @@ comment: true    # 是否允许评论
 
 除了 Astro 默认支持的 [GitHub Flavored Markdown](https://github.github.com/gfm/) 之外，还包含了一些额外的 Markdown 功能：
 
-- 提醒块（Admonitions） - 支持 GitHub, Obsidian, VitePress 三种风格主题配置 ([预览和用法](https://firefly.cuteleaf.cn/posts/markdown-extended/))
+- 提醒块（Admonitions） - 支持 GitHub, Obsidian, VitePress, Docusaurus 四种风格主题配置 ([预览和用法](https://firefly.cuteleaf.cn/posts/markdown-extended/))
 - GitHub 仓库卡片 ([预览和用法](https://firefly.cuteleaf.cn/posts/markdown-extended/))
 - 基于 Expressive Code 的增强代码块 ([预览](http://firefly.cuteleaf.cn/posts/code-examples/) / [文档](https://expressive-code.com/))
 
