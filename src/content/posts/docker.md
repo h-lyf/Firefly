@@ -1,9 +1,9 @@
 ---
-title: Docker 与 Docker Compose 生产运维完整手册
+title: Docker 与 Docker Compose 常用命令
 published: 2026-07-05
-description: 涵盖 Docker 容器生命周期、网络管理、持久化存储、镜像优化及 Docker Compose 多容器编排的生产级运维指南。
+description: 涵盖 Docker 容器生命周期、网络管理、持久化存储、镜像优化及 Docker Compose 多容器编排的常用命令。
 image: api
-tags: [Docker, Compose, 运维, 容器化, 完整手册]
+tags: [Docker, Compose, 容器化]
 category: 系统管理
 draft: false
 ---
