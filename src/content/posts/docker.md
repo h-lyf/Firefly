@@ -61,18 +61,18 @@ draft: false
 ### 1. 服务启停与管理
 | 命令 | 描述 |
 | :--- | :--- |
-| `docker-compose up -d` | 后台启动所有编排服务 |
-| `docker-compose down` | 停止并移除容器、网络 |
-| `docker-compose restart` | 重启所有服务容器 |
-| `docker-compose ps` | 查看各服务运行状态 |
-| `docker-compose logs -f <service>` | 实时查看指定服务日志 |
+| `docker compose up -d` | 后台启动所有编排服务 |
+| `docker compose down` | 停止并移除容器、网络 |
+| `docker compose restart` | 重启所有服务容器 |
+| `docker compose ps` | 查看各服务运行状态 |
+| `docker compose logs -f <service>` | 实时查看指定服务日志 |
 
 ### 2. 扩缩容与配置
 | 命令 | 描述 |
 | :--- | :--- |
-| `docker-compose scale <service>=N` | 扩展指定服务实例数量 |
-| `docker-compose config` | 验证并输出格式化后的配置 |
-| `docker-compose exec <service> sh` | 进入指定编排服务的内部 |
+| `docker compose scale <service>=N` | 扩展指定服务实例数量 |
+| `docker compose config` | 验证并输出格式化后的配置 |
+| `docker compose exec <service> sh` | 进入指定编排服务的内部 |
 
 ---
 
