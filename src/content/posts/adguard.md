@@ -16,9 +16,9 @@ AdGuard 的自定义规则基于 Adblock Plus 标准，并在此基础上进行�
 | 语法 | 说明 | 示例 |
 | :--- | :--- | :--- |
 | `\|\|domain.com^` | 拦截该域名及其所有子域名 | `\|\|ads.example.com^` |
-| `domain.com` | 只要 URL 中包含此字符串即拦截 | `example.com/ad/` |
-| `\|http://domain.com` | 从 URL 开头进行精确匹配 | `\|http://badsite.com` |
-| `domain.com^` | 拦截该域名下的所有请求 | `tracker.com^` |
+| `domain.com` | URL 包含字符串即拦截 | `example.com/ad/` |
+| `\|http://domain.com` | URL 开头精确匹配 | `\|http://badsite.com` |
+| `domain.com^` | 拦截域名下的所有请求 | `tracker.com^` |
 
 ---
 
@@ -26,11 +26,11 @@ AdGuard 的自定义规则基于 Adblock Plus 标准，并在此基础上进行�
 用于隐藏网页上残留的空白位、弹窗或特定的广告容器。
 
 | 语法 | 说明 | 示例 |
-| :--- | :--- |
-| `domain.com##.selector` | 隐藏 CSS 类名为 selector 的元素 | `baidu.com##.ad-banner` |
-| `domain.com##div#id` | 隐藏 ID 为 id 的 DIV 元素 | `example.com##div#popup` |
-| `domain.com##.class:has-text(广告)` | 隐藏包含特定文字的元素 | `##.content:has-text(推广)` |
-| `domain.com#?#css-selector` | 使用高级选择器（如伪类） | `##.sidebar:has(a[href*="ads"])` |
+| :--- | :--- | :--- |
+| `domain.com##.selector` | 隐藏类名为 selector 的元素 | `baidu.com##.ad-banner` |
+| `domain.com##div#id` | 隐藏 ID 为 id 的元素 | `example.com##div#popup` |
+| `domain.com##.class:has-text(广告)` | 隐藏含特定文字元素 | `##.content:has-text(推广)` |
+| `domain.com#?#css-selector` | 使用高级伪类选择器 | `##.sidebar:has(a[href*="ads"])` |
 
 ---
 
