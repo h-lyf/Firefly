@@ -8,8 +8,6 @@ category: 系统管理
 draft: false
 ---
 
-# PM2 常用命令速查手册
-
 PM2 (Process Manager 2) 是 Node.js 应用最常用的生产环境进程管理器。它不仅能保证应用在崩溃后自动重启，还支持零停机重启和多核负载均衡。
 
 ## 1. 进程管理

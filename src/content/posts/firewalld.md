@@ -8,8 +8,6 @@ category: 系统安全
 draft: false
 ---
 
-# Firewalld 防火墙生产运维完整手册
-
 Firewalld 通过“区域 (Zone)”的概念简化了防火墙的管理，能够实现动态规则配置，无需重启服务即可生效。
 
 ---

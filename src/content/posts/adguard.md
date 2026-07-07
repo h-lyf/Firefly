@@ -8,8 +8,6 @@ category: 系统管理
 draft: false
 ---
 
-# AdGuard 个人过滤规则编写指南
-
 AdGuard 的自定义规则基于 Adblock Plus 标准，并在此基础上进行了扩展。掌握这些语法，可以帮你精准拦截特定域名或网页元素。
 
 ---
