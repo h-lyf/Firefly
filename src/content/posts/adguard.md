@@ -15,9 +15,9 @@ AdGuard 的自定义规则基于 Adblock Plus 标准，并在此基础上进行�
 
 | 语法 | 说明 | 示例 |
 | :--- | :--- | :--- |
-| `||domain.com^` | 拦截该域名及其所有子域名 | `||ads.example.com^` |
+| `\|\|domain.com^` | 拦截该域名及其所有子域名 | `\|\|ads.example.com^` |
 | `domain.com` | 只要 URL 中包含此字符串即拦截 | `example.com/ad/` |
-| `|http://domain.com` | 从 URL 开头进行精确匹配 | `|http://badsite.com` |
+| `\|http://domain.com` | 从 URL 开头进行精确匹配 | `\|http://badsite.com` |
 | `domain.com^` | 拦截该域名下的所有请求 | `tracker.com^` |
 
 ---
