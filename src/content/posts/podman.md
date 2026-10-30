@@ -1,14 +1,14 @@
 ---
 title: Podman 常用命令
 published: 2026-10-30
-description: 涵盖 Podman 容器生命周期、Pod 组网、镜像管理、网络存储，以及基于 Quadlet 的 Systemd 声明式容器服务配置。
+description: 涵盖 Podman 容器生命周期、Pod 组网、Podman Compose 多容器编排、网络存储及 Quadlet 声明式配置。
 image: api
-tags: [Podman, Quadlet, Systemd, 容器化]
+tags: [Podman, Compose, Quadlet, Systemd]
 category: 系统管理
 draft: false
 ---
 
-Podman 作为无守护进程（Daemonless）、原生支持无根运行（Rootless）的新一代容器引擎，在安全性与系统集成度上具有天然优势。配合 Systemd 现代化的 Quadlet 机制，能够轻松实现容器服务的声明式管理。
+Podman 作为无守护进程（Daemonless）、原生支持无根运行（Rootless）的新一代容器引擎，在安全性与系统集成度上具有天然优势。配合 Podman Compose 以及 Systemd 现代化的 Quadlet 机制，能够高效满足从简单开发到生产环境的容器编排需求。
 
 本文汇集了 Podman 的日常常用命令以及 Quadlet 的配置实践，助你高效运维。
 
@@ -51,7 +51,31 @@ Podman 引入了 Kubernetes 中的 **Pod** 概念，允许多个容器共享同�
 
 ---
 
-## 三、 Podman 网络与存储管理
+## 三、 Podman Compose 多容器编排
+
+Podman 可以直接兼容 `docker-compose.yml` 文件。你可以通过 `podman compose` 命令（底层支持 `podman-compose` 或官方 `docker-compose` 引擎）进行多容器管理。
+
+### 1. 服务启停与管理
+| 命令 | 描述 |
+| :--- | :--- |
+| `podman compose up -d` | 后台启动 Compose 文件定义的所有服务 |
+| `podman compose down` | 停止并移除容器、网络 |
+| `podman compose restart` | 重启所有服务容器 |
+| `podman compose ps` | 查看各服务运行状态 |
+| `podman compose logs -f <service>` | 实时查看指定服务日志 |
+
+### 2. 扩展与调试
+| 命令 | 描述 |
+| :--- | :--- |
+| `podman compose exec <service> sh` | 进入指定编排服务的内部 |
+| `podman compose config` | 验证并解析格式化后的 Compose 配置 |
+| `podman compose build` | 重新构建 Compose 文件中的服务镜像 |
+
+> **提示**：如果提示 `podman compose` 找不到，请确保系统已安装 `podman-compose` 软件包（例如 `sudo apt install podman-compose` 或 `pip install podman-compose`）。
+
+---
+
+## 四、 Podman 网络与存储管理
 
 ### 1. 网络管理
 | 命令 | 描述 |
@@ -70,7 +94,7 @@ Podman 引入了 Kubernetes 中的 **Pod** 概念，允许多个容器共享同�
 
 ---
 
-## 四、 Podman Quadlet 声明式配置（重点）
+## 五、 Podman Quadlet 声明式配置（Systemd 原生）
 
 **Quadlet** 是 Podman 自 v4.4+ 推出的现代化容器管理工具。它允许你使用类似 Systemd `.service` 的声明式文件（`.container`、`.pod`、`.volume`、`.network`），自动生成并由 Systemd 原生接管容器服务。
 
@@ -119,7 +143,7 @@ WantedBy=default.target
 
 ---
 
-## 五、 镜像与系统维护
+## 六、 镜像与系统维护
 
 ### 1. 镜像维护
 | 命令 | 描述 |
@@ -138,13 +162,15 @@ WantedBy=default.target
 
 ---
 
-## 六、 Podman & Quadlet 生产最佳实践
+## 七、 Podman 运维最佳实践
 
 1.  **全面转向 Rootless 模式**：优先以普通用户运行容器，有效抵御容器逃逸风险。
 2.  **开启普通用户驻留（Keep-Alive）**：
-    Rootless 容器若需随开机自启，需执行以下命令允许用户脱机运行进程：
+    Rootless 容器若需开机自启，需执行以下命令允许用户脱机运行进程：
     ```bash
     loginctl enable-linger $USER
     ```
-3.  **使用 Quadlet 代替传统 Compose/Cron**：将生产服务配置写成 `.container` 或 `.pod` 文件，交由 Systemd 进行健康检查、依赖控制与日志收集（`journalctl -u nginx.service`）。
+3.  **选型建议（Compose vs Quadlet）**：
+    *   **开发测试 / 快速迁移**：使用 `podman compose`（无缝兼容 `docker-compose.yml`）。
+    *   **生产环境 / 单机长期运行**：使用 Quadlet（原生的 Systemd 守护、进程监控、日志收集）。
 4.  **SELinux 标签策略**：在启用了 SELinux 的系统（如 RHEL/Fedora/CentOS）上挂载宿主机目录时，需在路径后增加 `:z` 或 `:Z` 选项，例如：`-v /data:/app:z`。
